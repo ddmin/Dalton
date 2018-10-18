@@ -6,7 +6,9 @@ from selenium import webdriver
 import pyautogui
 import time
 from desmos_interface import screenshot
+from desmos_interface import setup
 
+setup()
 
 TOKEN = 'NTAxMjQ1OTkxNTM0NzIzMDcy.Dqk5NA.fykIbBCWjl60hqCRszKhOHVlUkA'
 
