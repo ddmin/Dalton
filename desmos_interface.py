@@ -2,10 +2,7 @@ from selenium import webdriver
 import pyautogui
 import time
 
-def screenshot():
-    pyautogui.PAUSE= 1
-    pyautogui.FAILSAFE = True
-
+def setup():
     chromedriver =  r'C:\Users\ddmin\Downloads\chromedriver.exe'
     driver = webdriver.Chrome(chromedriver)
     driver.get("https://www.desmos.com/calculator")
@@ -13,21 +10,19 @@ def screenshot():
     pyautogui.moveTo(1235, 25)
     pyautogui.click()
 
-    pyautogui.moveTo(100, 300)
-    pyautogui.click()
-
-    pyautogui.hotkey('ctrl', 'v')
-
     pyautogui.hotkey('fn', 'f11')
     time.sleep(5)
 
+def screenshot():
+    pyautogui.moveTo(75, 200)
+    pyautogui.click()
+    
+    pyautogui.hotkey('ctrl', 'v')
+    time.sleep(1)
+
     pic = pyautogui.screenshot()
 
-    pyautogui.hotkey('fn', 'f11')
+    pyautogui.moveTo(560, 190)
+    pyautogui.click()
 
     pic.save('graph.png')
-
-    pyautogui.hotkey('ctrl', 'w')
-    pyautogui.hotkey('ctrl', 'w')
-
-
