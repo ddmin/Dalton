@@ -13,16 +13,68 @@ def setup():
     pyautogui.hotkey('fn', 'f11')
     time.sleep(5)
 
-def screenshot():
-    pyautogui.moveTo(75, 200)
-    pyautogui.click()
+    clickall()
     
-    pyautogui.hotkey('ctrl', 'v')
+
+def clickall():
+    for y in [200, 270, 340]:
+        pyautogui.moveTo(70, y)
+        pyautogui.click()
+
+
+def delete(number):
+    
+    if number == 1:
+        y = 192
+    elif number == 2:
+        y = 257
+    elif number == 3:
+        y = 327
+    else:
+        return False
+    
+    pyautogui.moveTo(560, y)
+    pyautogui.click()
+
+    return True
+
+
+def screenshot(number, equation):
+ 
+    if number == 1:
+        y = 200
+
+    elif number == 2:
+        y = 270
+
+    elif number == 3:
+        y = 340
+
+    else:
+        return False
+
+    clickall()
+    
+    pyautogui.moveTo(70, y)
+    pyautogui.click()
+
+    down = False
+    for char in equation:
+        if char == '^':
+            down = True
+        pyautogui.typewrite(char)
+        if char == ')' and down == True:
+            pyautogui.press('down')
+            down = False
+            
     time.sleep(1)
 
     pic = pyautogui.screenshot()
 
-    pyautogui.moveTo(560, 190)
-    pyautogui.click()
+    pic.save('graph.png')
 
+    return True
+
+def show_graph():
+    pic = pyautogui.screenshot()
     pic.save('graph.png')
