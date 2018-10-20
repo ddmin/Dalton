@@ -1,14 +1,19 @@
+#Discord dependencies
 import discord
 from discord.ext import commands
-import pyperclip
-import desmos_interface
-from selenium import webdriver
+
+#Webpage automation
 import pyautogui
 import time
+from selenium import webdriver
+
+#Import Desmos functions
+import desmos_interface
 from desmos_interface import screenshot
 from desmos_interface import setup
 from desmos_interface import delete
 from desmos_interface import show_graph
+
 
 setup()
 
